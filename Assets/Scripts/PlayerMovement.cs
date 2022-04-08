@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 1f;
+    Vector2 movementInput;
 
-    public Rigidbody2D rigidPlayer;
-    public Animator animator;
+    public float moveSpeed = 0.5f;
 
-    Vector2 movement;
+    public BoxCollider2D boxPlayer;
 
-    void Start()
+    RaycastHit2D boxHit;
+    private void Update()
     {
-        animator.GetComponent<Animator>();
-    }
+        movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-    void Update()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (movementInput != Vector2.zero){
+            boxHit = Physics2D.BoxCast(transform.position, boxPlayer.size, 0, new Vector2(0, movementInput.y), Mathf.Abs(movementInput.y * moveSpeed * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
-    }
+            if (boxHit.collider == null)
+            {
+                transform.Translate(0, movementInput.y * moveSpeed * Time.deltaTime, 0);
+            }
 
-    void FixedUpdate()
-    {
-        rigidPlayer.MovePosition(rigidPlayer.position + movement * moveSpeed * Time.fixedDeltaTime);
+            boxHit = Physics2D.BoxCast(transform.position, boxPlayer.size, 0, new Vector2(movementInput.x, 0), Mathf.Abs(movementInput.x * moveSpeed * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
+
+            //player movement
+            if (boxHit.collider == null)
+            {
+                transform.Translate(movementInput.x * moveSpeed * Time.deltaTime, 0, 0);
+            }
+
+        }
     }
 }
