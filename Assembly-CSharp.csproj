@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D2E26667-EB7F-8872-EB82-3E05F77F3DDC}</ProjectGuid>
+    <ProjectGuid>{C90BBA69-7724-3A18-A12E-C9459AB17613}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,6 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\KeyboardInput.cs" />
+    <Compile Include="Assets\Scripts\MouseInput.cs" />
+    <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Chest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprites\Tilesets\0x72_DungeonTilesetII_v1.4\License.txt" />
+    <None Include="Assets\Sprites\Tilesets\DungeonTiles Reconfig\License.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
