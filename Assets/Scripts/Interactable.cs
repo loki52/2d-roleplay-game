@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-     public void OnInteract(GameObject player)
+    public virtual void OnInteract(GameObject player)
     {
         Debug.Log("Interacting, I am, " + this.name);
+    }
+    
+    public virtual void StopInteract(GameObject player)
+    {
+        player.GetComponent<MouseInteract>().StopInteracting(this.gameObject);
     }
 }
