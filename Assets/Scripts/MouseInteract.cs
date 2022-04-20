@@ -68,4 +68,11 @@ public class MouseInteract : MonoBehaviour
     }
 
 
+    public void ExitButtonClick()
+    {
+        isInteractingWith.GetComponent<Interactable>().StopInteract(this.gameObject);
+        isInteracting = false;
+    }
+
+
 }

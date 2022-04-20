@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hostile
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - InteractableBlocking
   - Interactable
   - Player
-  - 
+  - Hostile
   - 
   - 
   - 
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 178027695
+    locked: 0
+  - name: Weapon
+    uniqueID: 4254432539
     locked: 0

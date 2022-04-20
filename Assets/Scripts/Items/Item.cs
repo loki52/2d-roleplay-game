@@ -14,13 +14,7 @@ public class Item
     public string itemName;
     public Sprite itemIcon;
     public int itemAmount;
-
     public ItemType itemType;
-
-    public Item()
-    {
-
-    }
 
     public Sprite GetIcon()
     {

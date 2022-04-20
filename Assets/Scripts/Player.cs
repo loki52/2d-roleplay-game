@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
+
     [SerializeField] public UI_Inventory uiInventory;
+    [SerializeField] public UI_Stats uiStats;
 
-    public Currency Gold;
-    public Inventory inventory;
+    public int experience;
 
-    private void Start()
+
+    protected override void Start()
     {
-        Gold = new Currency("Gold");
-        inventory = new Inventory();
+        base.Start();
         uiInventory.SetInventory(inventory);
     }
-    private void Update()
-    {
 
+    protected override void Update()
+    {
+        uiStats.SetPlayer(this);
+        base.Update();
     }
+
 }
