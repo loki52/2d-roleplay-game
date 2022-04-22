@@ -1064,7 +1064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &490931036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1288,12 +1288,12 @@ GameObject:
   - component: {fileID: 595229275}
   - component: {fileID: 595229274}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ResurrectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &595229273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4933,7 +4933,7 @@ GameObject:
   - component: {fileID: 1670820020}
   - component: {fileID: 1670820019}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ResurrectText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
