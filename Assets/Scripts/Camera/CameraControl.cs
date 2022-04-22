@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public Player player;
+    public GameObject target;
+
+    private bool targetDeath;
 
     private void Update()
     {
-        Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y, -10);
-        transform.position = newPos;
+        if (targetDeath == false)
+        {
+            if (target.GetComponent<Entity>().Death == true) { targetDeath = true; }
+            Vector3 newPos = new Vector3(target.transform.position.x, target.transform.position.y, -10);
+            transform.position = newPos;
+        }
     }
 }

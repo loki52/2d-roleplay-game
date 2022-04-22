@@ -10,10 +10,17 @@ public class Player : Entity
 
     public int experience;
 
+    public ItemObj item;
+
+    public ItemObj item2;
+
 
     protected override void Start()
     {
         base.Start();
+        inventory.AddItem(item, 1);
+        inventory.AddItem(item2, 50);
+
         uiInventory.SetInventory(inventory);
     }
 
@@ -22,5 +29,4 @@ public class Player : Entity
         uiStats.SetPlayer(this);
         base.Update();
     }
-
 }

@@ -6,18 +6,21 @@ public class Chest : Interactable
 {
     private Player playerComponent;
 
-    [SerializeField] public UI_Chest uiChest;
+    [SerializeField] public UI_Container uiChest;
 
-    public Inventory inventory { get; private set; }
+    public ItemObj item;
+
+    public InventoryObj inventory;
 
     private void Start()
     {
-        inventory = new Inventory();
-        uiChest.SetInventory(inventory);
+        inventory = new InventoryObj();
+        inventory.AddItem(item, 200);
     }
 
     public override void OnInteract(GameObject player)
     {
+        uiChest.SetInventory(inventory, "Chest");
         uiChest.ShowInventory();
     }
 

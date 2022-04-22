@@ -7,10 +7,20 @@ public class KeyboardInput : MonoBehaviour
     //script for keyboard input handling
     public Vector2 movementInput { get; private set; }
 
+    public bool hideInvButton;
+
+    private void Start()
+    {
+        hideInvButton = false;
+    }
+    public void buttonHideInventory()
+    {
+        hideInvButton = true;
+    }
+
     private void Update()
     {
         // movement input
-        movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (Input.GetButtonDown("OpenBackpack") && !(GetComponent<Player>().uiInventory.gameObject.activeSelf))
         {
             //if button is held down and there is no inventory
@@ -23,6 +33,7 @@ public class KeyboardInput : MonoBehaviour
             //inventory present, hide it
             GetComponent<Player>().uiInventory.HideInventory();
         }
+        if(hideInvButton == true) { GetComponent<Player>().uiInventory.HideInventory(); hideInvButton = false; }
 
     }
 }

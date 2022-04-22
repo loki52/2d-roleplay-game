@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseInteract : MonoBehaviour
 {
@@ -13,23 +14,31 @@ public class MouseInteract : MonoBehaviour
     public bool isInteracting { get; private set; }
     public GameObject isInteractingWith { get; private set; }
 
+    public bool hideContButton;
+
 
     private void Start()
     {
+        hideContButton = false;
         isInteracting = false;
     }
+
+    public void buttonHideContainer()
+    {
+        hideContButton = true;
+    }
+
 
     private void Update()
     {
         if (isInteracting == true)
         {
-            if (Vector2.Distance(transform.position, isInteractingWith.gameObject.transform.position) > interactDistance + interactDistanceOffset)
+            if (Vector2.Distance(transform.position, isInteractingWith.gameObject.transform.position) > interactDistance + interactDistanceOffset | hideContButton == true)
             {
                 isInteractingWith.GetComponent<Interactable>().StopInteract(this.gameObject);
-                //GetComponent<Player>().uiInventory.gameObject.SetActive(true);
+                hideContButton = false;
             }
         }
-        //else { GetComponent<Player>().uiInventory.gameObject.SetActive(false); }
     }
 
     public void RayInteract()

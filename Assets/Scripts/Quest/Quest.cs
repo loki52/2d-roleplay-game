@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quest 
+public class Quest : ScriptableObject
 {
     public string questName;
     public string questText;
@@ -11,5 +11,10 @@ public class Quest
     {
         questName = name;
         questText = description;
+    }
+
+    protected virtual void QuestCompleted()
+    {
+
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
-    private Inventory playerInventory;
+    private InventoryObj playerInventory;
 
     private Transform slotContainer;
     private Transform slotTemplate;
@@ -21,7 +21,7 @@ public class UI_Inventory : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void SetInventory(Inventory inventory)
+    public void SetInventory(InventoryObj inventory)
     {
         playerInventory = inventory;
         FindInventoryItems();
@@ -34,14 +34,19 @@ public class UI_Inventory : MonoBehaviour
         int x = 0;
         int y = 0;
         float itemSlotCellSize = 115f;
-        foreach (Item item in playerInventory.inventoryList)
+        foreach (InventoryItem invItem in playerInventory.inventoryList)
         {
             RectTransform slotRectTransform = Instantiate(slotTemplate, slotContainer).GetComponent<RectTransform>();
             slotRectTransform.gameObject.SetActive(true);
             slotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
 
             Image itemImage = slotRectTransform.Find("itemImage").GetComponent<Image>();
-            itemImage.sprite = item.GetIcon();
+            itemImage.sprite = invItem.item.itemIcon;
+            Text itemQuantity = slotRectTransform.Find("itemQuantity").GetComponent<Text>();
+            if (invItem.amount > 1)
+            {
+                itemQuantity.text = invItem.amount.ToString();
+            }
 
             x++;
             if (x > playerInventory.InventorySize)

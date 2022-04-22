@@ -12,5 +12,6 @@ public class Interactable : MonoBehaviour
     public virtual void StopInteract(GameObject player)
     {
         player.GetComponent<MouseInteract>().StopInteracting(this.gameObject);
+        Debug.Log("STOP INTERACT");
     }
 }

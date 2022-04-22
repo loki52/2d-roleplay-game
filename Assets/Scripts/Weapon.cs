@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Weapon : BoxCollision
 {
-    //attak delay
-    public float attackDelay = 0.25f;
 
     //damage
-    public int damage = 5;
+    public int damage;
 
     //in-game sprite
     private SpriteRenderer weaponGameSprite;
@@ -18,29 +16,49 @@ public class Weapon : BoxCollision
 
     public Animator weaponAnimator;
 
+    private float cooldown = 0.5f;
+    private float lastAttack;
+
+
+    private List<Collider2D> attacked = new List<Collider2D>();
+
     protected override void Start()
     {
         base.Start();
+        damage = 25;
         weaponGameSprite = GetComponent<SpriteRenderer>();
+
     }
 
     protected override void Update()
     {
-        if (Input.GetButtonDown("Fire1") && weaponAnimator.GetBool("Attack") == false)
+        base.Update();
+        if (Input.GetButtonDown("Fire1"))
         {
-            weaponAnimator.SetTrigger("Attack"); 
+            if (Time.time - lastAttack > cooldown)
+            {
+                lastAttack = Time.time;
+                attacked.Clear();
+                weaponAnimator.SetTrigger("Attack");
+            }
         }
     }
 
-    protected override void OnCollisions(Collider2D[] collidersReal)
+    protected override void OnCollide(Collider2D collide)
     {
-        foreach (Collider2D hit in collidersReal)
+        int fail = 0;
+        int i = 0;
+        for (i = 0; i < attacked.Count; i++)
         {
-            if(hit != null && hit.tag != "Player") {
-                hit.gameObject.GetComponent<Entity>().DeductHealth(damage);
-                
-                }
+            if (attacked[i] == collide) { fail = 1; }
         }
+        //Debug.Log("collide = " + collide.name + "collidetag = " + collide.tag + " fail = " + fail);
+        if (collide != null && collide.tag != "Player" && collide.tag == "Hostile" && fail == 0)
+        {
+            //Debug.Log("attacking");
+            collide.gameObject.GetComponent<Entity>().DeductHealth(damage);
+            attacked.Add(collide);
+        }
+        //else { Debug.Log("failed"); }
     }
-
 }
