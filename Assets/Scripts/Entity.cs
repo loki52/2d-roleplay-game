@@ -21,7 +21,6 @@ public class Entity : MonoBehaviour
     {
         healthPoints = 100;
         Gold = new Currency("Gold");
-        inventory = new InventoryObj();
     }
     protected virtual void Update()
     {
@@ -40,7 +39,6 @@ public class Entity : MonoBehaviour
             if (healthPoints - damage < 0) { healthPoints = 0; }
             else
             {
-                Debug.Log("dedicted " + damage);
                 healthPoints -= damage;
             }
         }

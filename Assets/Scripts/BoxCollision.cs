@@ -32,6 +32,6 @@ public class BoxCollision : MonoBehaviour
 
     protected virtual void OnCollide(Collider2D collide)
     {
-        Debug.Log(collide.name);
+
     }
 }

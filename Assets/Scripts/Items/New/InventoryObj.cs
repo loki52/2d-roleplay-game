@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Invetory", menuName = "InventoryInstance/Inventory")]
+[CreateAssetMenu(fileName = "New Inventory", menuName = "InventoryInstance/Inventory")]
 public class InventoryObj : ScriptableObject
 {
     public int baseInventorySize = 5;
@@ -14,7 +14,6 @@ public class InventoryObj : ScriptableObject
     public void AddItem(ItemObj itemAdd, int amountAdd)
     {
         bool exists = false;
-        foreach (InventoryItem items in inventoryList) { Debug.Log(items.item.name); }  
         for(int index = 0; index < inventoryList.Count; index++)
         {
             if (inventoryList[index].item == itemAdd)

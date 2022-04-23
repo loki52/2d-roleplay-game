@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aec48b392ef1b443b9353c4b7b82bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: c03b8e63f74ff2640b5a87cf41124e50, type: 2}
   healthPoints: 0
   Death: 0
   uiInventory: {fileID: 1966991447}
@@ -840,10 +840,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiQuest: {fileID: 1407943653}
-  questTitle: Clearing out the imps
-  questText: There seem to be an awful lot of imps in the room across, they sound
-    scary. Could you possibly clear them out for me?
-  questOne: {fileID: 0}
+  questTitle: 
+  questText: 
+  questOne: {fileID: 11400000, guid: 3b00daac0f6e19a43b8c3145bf7eeaea, type: 2}
 --- !u!1 &278210418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,6 +1985,10 @@ PrefabInstance:
       propertyPath: uiChest
       value: 
       objectReference: {fileID: 1663140985}
+    - target: {fileID: 9140973948385513779, guid: a0ae2e3f20c73324b9809dddce1835c6, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 3778bb2377de7434e91f57a96696e625, type: 2}
     - target: {fileID: 9140973948385513782, guid: a0ae2e3f20c73324b9809dddce1835c6, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -7799,6 +7802,10 @@ PrefabInstance:
       propertyPath: uiChest
       value: 
       objectReference: {fileID: 1663140985}
+    - target: {fileID: 9140973948385513779, guid: a0ae2e3f20c73324b9809dddce1835c6, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a7c8f06c3213aa4db9f1fd888da0a18, type: 2}
     - target: {fileID: 9140973948385513782, guid: a0ae2e3f20c73324b9809dddce1835c6, type: 3}
       propertyPath: m_Name
       value: CHEST_TEST

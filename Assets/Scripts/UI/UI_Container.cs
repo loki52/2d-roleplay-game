@@ -51,7 +51,6 @@ public class UI_Container : MonoBehaviour
         int x = 0;
         int y = 0;
         float itemSlotCellSize = 115f;
-        foreach (InventoryItem item in containerInventory.inventoryList) { Debug.Log(item.item.name); }
         foreach (InventoryItem invItem in containerInventory.inventoryList)
         {
             RectTransform slotRectTransform = Instantiate(slotTemplate, slotContainer).GetComponent<RectTransform>();

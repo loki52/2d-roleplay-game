@@ -57,13 +57,10 @@ public class Weapon : BoxCollision
         {
             if (attacked[i] == collide) { fail = 1; }
         }
-        //Debug.Log("collide = " + collide.name + "collidetag = " + collide.tag + " fail = " + fail);
         if (collide != null && collide.tag != "Player" && collide.tag == "Hostile" && fail == 0)
         {
-            //Debug.Log("attacking");
             collide.gameObject.GetComponent<Entity>().DeductHealth(damage, this.gameObject);
             attacked.Add(collide);
         }
-        //else { Debug.Log("failed"); }
     }
 }

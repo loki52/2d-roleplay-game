@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e45425225d003034a85620ef69ec0e99, type: 3}
-  m_Name: PlayerInventory
+  m_Name: Chest2
   m_EditorClassIdentifier: 
   baseInventorySize: 5
   InventorySize: 5
   inventoryList:
+  - item: {fileID: 11400000, guid: 1b91b5e285dda5c4c9ae612611cead84, type: 2}
+    amount: 1
   - item: {fileID: 11400000, guid: 400d0e7ad8b32ff46bd796fbff5d5547, type: 2}
-    amount: 6
-  - item: {fileID: 11400000, guid: f70eb83d8bb94f74186525765a094fbb, type: 2}
-    amount: 265
+    amount: 800

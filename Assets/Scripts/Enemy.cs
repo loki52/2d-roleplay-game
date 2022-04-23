@@ -10,10 +10,8 @@ public class Enemy : Entity
     {
         if (damageOrigin.transform.parent.gameObject.GetComponent<Player>() != null)
         {
-            Debug.Log("add");
             damageOrigin.transform.parent.gameObject.GetComponent<Player>().AddExperience(experienceGive);
         }
-        Debug.Log("to");
         base.OnDeath();
     }
 }

@@ -13,7 +13,7 @@ public class QuestNPC : Interactable
 
     private void Start()
     {
-        questOne = new Quest(questTitle, questText);
+        //questOne = new Quest(questTitle, questText);
         uiQuest.SetQuest(questOne);
     }
 

@@ -73,7 +73,6 @@ public class MouseInteract : MonoBehaviour
         {
             isInteracting = false;
         }
-        Debug.Log("Stopped interacting");
     }
 
 

@@ -14,7 +14,6 @@ public class Chest : Interactable
 
     private void Start()
     {
-        inventory = new InventoryObj();
         inventory.AddItem(item, 200);
     }
 
