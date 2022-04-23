@@ -8,10 +8,13 @@ public class UI_Stats : MonoBehaviour
     private Player currentPlayer;
 
     private Text healthText;
+    private Text experienceText;
     private void Awake()
     {
         Transform healthTransform = transform.Find("Health");
+        Transform experienceTrasform = transform.Find("Experience");
         healthText = healthTransform.GetComponent<Text>();
+        experienceText = experienceTrasform.GetComponent<Text>();
     }
 
     private void Start()
@@ -30,5 +33,6 @@ public class UI_Stats : MonoBehaviour
         if (currentPlayer.healthPoints < 50) { healthText.color = Color.red; }
         else { healthText.color = Color.white; }
         healthText.text = "Health: " + currentPlayer.healthPoints.ToString();
+        experienceText.text = "Experience: " + currentPlayer.experience.ToString();
     }
 }

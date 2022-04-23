@@ -14,6 +14,8 @@ public class Entity : MonoBehaviour
 
     private Vector2 pushLocation;
 
+    protected GameObject damageOrigin;
+
 
     protected virtual void Start()
     {
@@ -31,7 +33,7 @@ public class Entity : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public virtual void DeductHealth(int damage)
+    public virtual void DeductHealth(int damage, GameObject origin)
     {
         if (Death != true)
         {
@@ -42,6 +44,7 @@ public class Entity : MonoBehaviour
                 healthPoints -= damage;
             }
         }
+        damageOrigin = origin;
     }
 
     protected virtual void PushBack(GameObject origin, int force)

@@ -14,7 +14,9 @@ public class EnemyAttack : MonoBehaviour
         if (Time.time - lastAttack > cooldown)
         {
             lastAttack = Time.time;
-            target.GetComponent<Entity>().DeductHealth(damage);
+            target.GetComponent<Entity>().DeductHealth(damage, this.gameObject);
         }
     }
+
+
 }

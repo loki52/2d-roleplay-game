@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Weapon : BoxCollision
 {
@@ -19,6 +20,10 @@ public class Weapon : BoxCollision
     private float cooldown = 0.5f;
     private float lastAttack;
 
+    private RaycastHit2D[] rayHit = new RaycastHit2D[5];
+    public ContactFilter2D mouseFilter;
+
+
 
     private List<Collider2D> attacked = new List<Collider2D>();
 
@@ -35,7 +40,7 @@ public class Weapon : BoxCollision
         base.Update();
         if (Input.GetButtonDown("Fire1"))
         {
-            if (Time.time - lastAttack > cooldown)
+            if (Time.time - lastAttack > cooldown && EventSystem.current.IsPointerOverGameObject() == false)
             {
                 lastAttack = Time.time;
                 attacked.Clear();
@@ -56,7 +61,7 @@ public class Weapon : BoxCollision
         if (collide != null && collide.tag != "Player" && collide.tag == "Hostile" && fail == 0)
         {
             //Debug.Log("attacking");
-            collide.gameObject.GetComponent<Entity>().DeductHealth(damage);
+            collide.gameObject.GetComponent<Entity>().DeductHealth(damage, this.gameObject);
             attacked.Add(collide);
         }
         //else { Debug.Log("failed"); }

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 136078174926267678}
   - component: {fileID: 136078174926267673}
   - component: {fileID: 136078174926267672}
-  - component: {fileID: 136078174926267679}
   - component: {fileID: 2142898157454893936}
   - component: {fileID: 5438645187973933650}
   - component: {fileID: 7722304504020869107}
+  - component: {fileID: 2846472693205303345}
   m_Layer: 11
   m_Name: imp_enemy_0
   m_TagString: Hostile
@@ -113,21 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1422857, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &136078174926267679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136078174926267675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a6755bd9ca9c6438609faa314a5a6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  healthPoints: 0
-  Death: 0
 --- !u!95 &2142898157454893936
 Animator:
   serializedVersion: 3
@@ -173,3 +158,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &2846472693205303345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136078174926267675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c013422222080604a9391b329110f65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  healthPoints: 0
+  Death: 0
+  experienceGive: 10

@@ -18,6 +18,7 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
+        experience = 0;
         inventory.AddItem(item, 1);
         inventory.AddItem(item2, 50);
 
@@ -28,5 +29,10 @@ public class Player : Entity
     {
         uiStats.SetPlayer(this);
         base.Update();
+    }
+
+    public void AddExperience(int amount)
+    {
+        if (amount > 0) { experience += amount; }
     }
 }
