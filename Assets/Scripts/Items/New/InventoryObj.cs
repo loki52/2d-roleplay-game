@@ -14,11 +14,13 @@ public class InventoryObj : ScriptableObject
     public void AddItem(ItemObj itemAdd, int amountAdd)
     {
         bool exists = false;
+        int toAdd = amountAdd;
         for(int index = 0; index < inventoryList.Count; index++)
         {
-            if (inventoryList[index].item == itemAdd)
+            if (inventoryList[index].item == itemAdd && toAdd != amountAdd)
             {
                 inventoryList[index].AddAmount(amountAdd);
+                toAdd -= toAdd;
                 exists = true;
             }
         }

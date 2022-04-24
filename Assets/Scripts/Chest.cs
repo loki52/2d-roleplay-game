@@ -12,11 +12,6 @@ public class Chest : Interactable
 
     public InventoryObj inventory;
 
-    private void Start()
-    {
-        inventory.AddItem(item, 200);
-    }
-
     public override void OnInteract(GameObject player)
     {
         uiChest.SetInventory(inventory, "Chest");

@@ -16,4 +16,4 @@ MonoBehaviour:
   InventorySize: 5
   inventoryList:
   - item: {fileID: 11400000, guid: f70eb83d8bb94f74186525765a094fbb, type: 2}
-    amount: 802
+    amount: 15
