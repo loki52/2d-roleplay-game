@@ -8,7 +8,6 @@ public class BoxCollision : MonoBehaviour
     public ContactFilter2D contactFilter;
     protected Collider2D[] collidersHit = new Collider2D[6];
     protected BoxCollider2D bCollider;
-    protected Collider2D[] collidersReal = new Collider2D[6];
 
 
     protected virtual void Start()
@@ -22,7 +21,6 @@ public class BoxCollision : MonoBehaviour
         bCollider.OverlapCollider(contactFilter, collidersHit);
         foreach (Collider2D hit in collidersHit)
         {
-            if (hit == null) { continue; }
             if (hit != null)
             {
                 OnCollide(hit);

@@ -31,30 +31,30 @@ public class UI_Inventory : MonoBehaviour
     {
         //find and implement inventory items into the UI
         FillInventory();
-        int x = 0;
-        int y = 0;
+        int itemSlotx = 0;
+        int itemSloty = 0;
         float itemSlotCellSize = 115f;
         foreach (InventoryItem invItem in playerInventory.inventoryList)
         {
-            RectTransform slotRectTransform = Instantiate(slotTemplate, slotContainer).GetComponent<RectTransform>();
-            slotRectTransform.gameObject.SetActive(true);
-            slotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+            Transform slotTransform = Instantiate(slotTemplate, slotContainer);
+            RectTransform slotRectTransform = slotTransform.GetComponent<RectTransform>();
+            //instantiates a new slot template and container and gets the RectTransform
+
+            slotRectTransform.anchoredPosition = new Vector2(itemSlotx * itemSlotCellSize, itemSloty);
+            //Anchors the new slot 115 units 
 
             Image itemImage = slotRectTransform.Find("itemImage").GetComponent<Image>();
             itemImage.sprite = invItem.item.itemIcon;
             Text itemQuantity = slotRectTransform.Find("itemQuantity").GetComponent<Text>();
+
+            slotRectTransform.gameObject.SetActive(true);
+
             if (invItem.amount > 1)
             {
                 itemQuantity.text = invItem.amount.ToString();
             }
 
-            x++;
-            if (x > playerInventory.InventorySize)
-            {
-                x = 0;
-                y++;
-            }
-
+            itemSlotx++;
         }
     }
 
@@ -62,24 +62,23 @@ public class UI_Inventory : MonoBehaviour
     {
         //fill inventory with empty frames first
         int i = 1;
-        int x = 0;
-        int y = 0;
+        int emptySlotx = 0;
+        int emptySloty = 0;
         float itemSlotCellSize = 115f;
         while (i <= playerInventory.InventorySize)
         {
-            RectTransform slotRectTransform = Instantiate(slotTemplate, slotContainer).GetComponent<RectTransform>();
+            Transform slotTransform = Instantiate(slotTemplate, slotContainer);
+            RectTransform slotRectTransform = slotTransform.GetComponent<RectTransform>();
+
             slotRectTransform.gameObject.SetActive(true);
-            slotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+            slotRectTransform.anchoredPosition = new Vector2(emptySlotx * itemSlotCellSize, emptySloty);
             Transform imageTransform = slotRectTransform.Find("itemImage");
             imageTransform.gameObject.SetActive(false);
             Transform imageBackground = slotRectTransform.Find("Background");
             imageBackground.gameObject.SetActive(false);
-            x++;
-            if (x > playerInventory.InventorySize)
-            {
-                x = 0;
-                y++;
-            }
+
+            emptySlotx++;
+
             i++;
         }
     }

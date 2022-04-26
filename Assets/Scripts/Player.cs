@@ -7,6 +7,7 @@ public class Player : Entity
 
     [SerializeField] public UI_Inventory uiInventory;
     [SerializeField] public UI_Stats uiStats;
+    [SerializeField] public UI_Death uiDeath;
 
     public int experience;
 
@@ -27,6 +28,12 @@ public class Player : Entity
     {
         uiStats.SetPlayer(this);
         base.Update();
+    }
+
+    protected override void OnDeath()
+    {
+        uiDeath.PlayerDeath();
+        base.OnDeath();
     }
 
     public void AddExperience(int amount)

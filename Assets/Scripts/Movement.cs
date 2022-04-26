@@ -19,11 +19,6 @@ public class Movement : MonoBehaviour
         boxEntity = GetComponent<BoxCollider2D>();
     }
 
-    protected virtual void FixedUpdate()
-    {
-
-    }
-
     protected virtual void UpdateMove(Vector2 movementInput)
     {
         if (movementInput != Vector2.zero)

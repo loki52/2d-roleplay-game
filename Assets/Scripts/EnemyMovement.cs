@@ -30,14 +30,8 @@ public class EnemyMovement : Movement
                     this.GetComponent<EnemyAttack>().Attack(targetsInRadius[i].gameObject);
                 }
                 movementInput = targetsInRadius[i].transform.position - transform.position;
-                //float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
-                //transform.Rotate(targetAngle);
             }
         }
-    }
-
-    protected override void FixedUpdate()
-    {
         base.UpdateMove(movementInput);
     }
 }

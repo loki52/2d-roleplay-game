@@ -48,28 +48,34 @@ public class UI_Container : MonoBehaviour
     {
         //find and implement inventory items into the UI
         FillInventory();
-        int x = 0;
-        int y = 0;
+        int itemSlotx = 0;
+        int itemSloty = 0;
         float itemSlotCellSize = 115f;
         foreach (InventoryItem invItem in containerInventory.inventoryList)
         {
-            RectTransform slotRectTransform = Instantiate(slotTemplate, slotContainer).GetComponent<RectTransform>();
-            slotRectTransform.gameObject.SetActive(true);
-            slotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+            Transform slotTransform = Instantiate(slotTemplate, slotContainer);
+            RectTransform slotRectTransform = slotTransform.GetComponent<RectTransform>();
+            //instantiates a new slot template and container and gets the RectTransform
+
+            slotRectTransform.anchoredPosition = new Vector2(itemSlotx * itemSlotCellSize, itemSloty);
+            //Anchors the new slot 115 units 
 
             Image itemImage = slotRectTransform.Find("itemImage").GetComponent<Image>();
             itemImage.sprite = invItem.item.itemIcon;
             Text itemQuantity = slotRectTransform.Find("itemQuantity").GetComponent<Text>();
+
+            slotRectTransform.gameObject.SetActive(true);
+
             if (invItem.amount > 1)
             {
                 itemQuantity.text = invItem.amount.ToString();
             }
+            itemSlotx++;
 
-            x++;
-            if (x > containerInventory.InventorySize)
+            if (itemSlotx > containerInventory.InventorySize)
             {
-                x = 0;
-                y++;
+                itemSlotx = 0;
+                itemSloty++;
             }
 
         }

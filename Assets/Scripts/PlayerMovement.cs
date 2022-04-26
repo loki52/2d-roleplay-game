@@ -11,10 +11,7 @@ public class PlayerMovement : Movement
 
         animator.SetFloat("Horizontal", movementInput.x);
         animator.SetFloat("Speed", movementInput.magnitude);
-    }
 
-    protected override void FixedUpdate()
-    {
         base.UpdateMove(movementInput);
     }
 }
