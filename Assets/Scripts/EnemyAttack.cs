@@ -17,6 +17,4 @@ public class EnemyAttack : MonoBehaviour
             target.GetComponent<Entity>().DeductHealth(damage, this.gameObject);
         }
     }
-
-
 }

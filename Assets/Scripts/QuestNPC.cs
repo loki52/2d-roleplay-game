@@ -19,13 +19,13 @@ public class QuestNPC : Interactable
 
     public override void OnInteract(GameObject player)
     {
-        uiQuest.gameObject.SetActive(true);
+        uiQuest.ShowQuest();
     }
 
     public override void StopInteract(GameObject player)
     {
         player.GetComponent<MouseInteract>().StopInteracting(this.gameObject);
-        uiQuest.gameObject.SetActive(false);
+        uiQuest.HideQuest();
     }
 }
 

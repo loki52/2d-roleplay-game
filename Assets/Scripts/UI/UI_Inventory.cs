@@ -10,8 +10,11 @@ public class UI_Inventory : MonoBehaviour
     private Transform slotContainer;
     private Transform slotTemplate;
 
+    private AudioManager audioManager;
+
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         slotContainer = transform.Find("itemSlotContainer");
         slotTemplate = slotContainer.Find("itemSlotTemplate");
     }
@@ -86,11 +89,13 @@ public class UI_Inventory : MonoBehaviour
     public void ShowInventory()
     {
         this.gameObject.SetActive(true);
+        audioManager.Play("OpenInventory");
     }
 
     public void HideInventory()
     {
         this.gameObject.SetActive(false);
+        audioManager.Play("CloseInventory");
     }
 
 }

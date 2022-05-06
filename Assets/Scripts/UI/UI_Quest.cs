@@ -8,9 +8,15 @@ public class UI_Quest : MonoBehaviour
     private Quest currentQuest;
 
     private Text questTitle;
-    private Text questText; 
+    private Text questText;
+
+    public AudioSource audiodata;
+    public AudioClip closeQuest;
+
+    public AudioManager audioManager;
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         Transform questTitleTransform = transform.Find("questTitle");
         Transform questTextTransform = transform.Find("questText");
         questTitle = questTitleTransform.GetComponent<Text>();
@@ -27,6 +33,19 @@ public class UI_Quest : MonoBehaviour
         currentQuest = quest;
         UpdateUI();
     }
+
+    public void ShowQuest()
+    {
+        this.gameObject.SetActive(true);
+        audioManager.Play("OpenQuest");
+    }
+
+    public void HideQuest()
+    {
+        this.gameObject.SetActive(false);
+        audioManager.Play("CloseQuest");
+    }
+
 
     private void UpdateUI()
     {

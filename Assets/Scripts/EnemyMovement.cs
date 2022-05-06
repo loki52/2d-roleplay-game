@@ -10,7 +10,7 @@ public class EnemyMovement : Movement
 
     private Vector2 movementInput;
 
-    private float attackDistance;
+    public float attackDistance;
 
     private void Awake()
     {
