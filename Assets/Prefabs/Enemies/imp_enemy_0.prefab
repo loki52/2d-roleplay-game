@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5438645187973933650}
   - component: {fileID: 7722304504020869107}
   - component: {fileID: 2846472693205303345}
+  - component: {fileID: 1526723783109113889}
   m_Layer: 11
   m_Name: imp_enemy_0
   m_TagString: Hostile
@@ -178,3 +179,24 @@ MonoBehaviour:
   healthPoints: 0
   Death: 0
   experienceGive: 10
+--- !u!50 &1526723783109113889
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136078174926267675}
+  m_BodyType: 1
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
