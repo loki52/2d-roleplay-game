@@ -20,10 +20,8 @@ public class PlayerMovement : Movement
         else
         {
             animator.SetBool("isMoving", false);
-        } 
-
+        }
 
         base.UpdateMove(movementInput);
     }
-
 }

@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     public Animator animator;
 
 
+
     protected virtual void Start()
     {
         boxEntity = GetComponent<BoxCollider2D>();

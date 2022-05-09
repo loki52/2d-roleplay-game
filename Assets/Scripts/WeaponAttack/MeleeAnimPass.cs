@@ -8,11 +8,14 @@ public class MeleeAnimPass : MonoBehaviour
     MeleeAimSwing melee;
     Animator animator;
 
+    Weapon weaponScript;
+
 
     private void Start()
     {
         melee = GameObject.Find("MeleePoint1").GetComponent<MeleeAimSwing>();
         animator = GetComponent<Animator>();
+        weaponScript = GetComponent<Weapon>();
     }
 
     public IEnumerator AttackAnim()
@@ -20,6 +23,7 @@ public class MeleeAnimPass : MonoBehaviour
         animator.SetBool("Swinging", true);
         yield return new WaitForSeconds(0.1f);
         animator.SetBool("Swinging", false);
+        weaponScript.ClearCollisions();
     }
 
 }

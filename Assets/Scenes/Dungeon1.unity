@@ -2091,6 +2091,8 @@ GameObject:
   - component: {fileID: 1109242921}
   - component: {fileID: 1109242920}
   - component: {fileID: 1109242922}
+  - component: {fileID: 1109242923}
+  - component: {fileID: 1109242924}
   m_Layer: 0
   m_Name: MeleeSlashPoint
   m_TagString: Untagged
@@ -2106,7 +2108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109242918}
   m_LocalRotation: {x: 0.00034113385, y: -0.0012638597, z: -0.26058856, w: 0.96544904}
-  m_LocalPosition: {x: 0.15, y: -0.0013, z: 0}
+  m_LocalPosition: {x: 0.192, y: -0.001, z: 0}
   m_LocalScale: {x: 0.03202893, y: 0.03202893, z: 0.03202893}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2197,6 +2199,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e07c4bab2d37b2439202b56a598d838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1109242923
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109242918}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.22555256, y: -0.6404128}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.64, y: 5.75}
+    newSize: {x: 9.64, y: 5.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.509069, y: 7.745385}
+  m_EdgeRadius: 0
+--- !u!114 &1109242924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109242918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2ac0eb470c3a14e875086508c33a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  damage: 25
+  mouseFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1 &1128116395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,8 +2385,8 @@ MonoBehaviour:
   swingDistance: 100
   swingFinished: 0
   swingStarted: 0
-  cooldown: 0.45
-  swingEndCooldown: 0.1
+  cooldown: 0.4
+  swingEndCooldown: 0.2
 --- !u!212 &1159676682
 SpriteRenderer:
   m_ObjectHideFlags: 0

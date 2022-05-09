@@ -34,6 +34,23 @@ public class Weapon : BoxCollision
         base.Start();
         damage = 25;
         boxCollider = GetComponent<BoxCollider2D>();
+
+    }
+
+    protected override void Update()
+    {
+        if (boxCollider.isActiveAndEnabled == true)
+        {
+            Collider2D[] collidersHit = new Collider2D[6];
+            bCollider.OverlapCollider(contactFilter, collidersHit);
+            foreach (Collider2D hit in collidersHit)
+            {
+                if (hit != null)
+                {
+                    OnCollide(hit);
+                }
+            }
+        }
     }
 
     protected override void OnCollide(Collider2D collide)
@@ -49,5 +66,10 @@ public class Weapon : BoxCollision
             collide.gameObject.GetComponent<Entity>().DeductHealth(damage, this.gameObject);
             attacked.Add(collide);
         }
+    }
+
+    public void ClearCollisions()
+    {
+        attacked.Clear();
     }
 }
