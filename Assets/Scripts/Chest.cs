@@ -16,6 +16,7 @@ public class Chest : Interactable
     {
         uiChest.SetInventory(inventory, "Chest");
         uiChest.ShowInventory();
+        player.GetComponent<Player>().uiInventory.ShowInventory();
     }
 
     public override void StopInteract(GameObject player)

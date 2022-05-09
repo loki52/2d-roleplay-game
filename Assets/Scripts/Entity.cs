@@ -44,9 +44,4 @@ public class Entity : MonoBehaviour
         }
         damageOrigin = origin;
     }
-
-    protected virtual void PushBack(GameObject origin, int force)
-    {
-        pushLocation = (transform.position - origin.transform.position).normalized * force;
-    }
 }

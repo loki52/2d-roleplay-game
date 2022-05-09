@@ -130,7 +130,7 @@ public class MeleeAimSwing : MonoBehaviour
             swingStarted = false;
         }
 
-        if (Input.GetMouseButtonDown(0) && Time.time - lastAttack > cooldown)
+        if (Input.GetMouseButton(0) && Time.time - lastAttack > cooldown)
         {
             animScript.StartCoroutine(animScript.AttackAnim());
             swingSword();

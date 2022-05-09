@@ -2029,6 +2029,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 136078174926267673, guid: 8b8bcdefdc4f15144a049e32044c8a98, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136078174926267673, guid: 8b8bcdefdc4f15144a049e32044c8a98, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136078174926267673, guid: 8b8bcdefdc4f15144a049e32044c8a98, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136078174926267673, guid: 8b8bcdefdc4f15144a049e32044c8a98, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 136078174926267675, guid: 8b8bcdefdc4f15144a049e32044c8a98, type: 3}
       propertyPath: m_Name
       value: imp_enemy_0 (3)
