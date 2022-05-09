@@ -15,9 +15,9 @@ public class Weapon : BoxCollision
     //weapon box colldier
     private BoxCollider2D boxCollider;
 
-    public Animator weaponAnimator;
+    //public Animator weaponAnimator;
 
-    private float cooldown = 0.5f;
+    private float cooldown = 0.25f;
     private float lastAttack;
 
     private RaycastHit2D[] rayHit = new RaycastHit2D[5];
@@ -27,26 +27,13 @@ public class Weapon : BoxCollision
 
     private List<Collider2D> attacked = new List<Collider2D>();
 
+    private PlayerAimWeapon aimWeapon;
+
     protected override void Start()
     {
         base.Start();
         damage = 25;
-        weaponGameSprite = GetComponent<SpriteRenderer>();
-
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (Time.time - lastAttack > cooldown && EventSystem.current.IsPointerOverGameObject() == false)
-            {
-                lastAttack = Time.time;
-                attacked.Clear();
-                weaponAnimator.SetTrigger("Attack");
-            }
-        }
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     protected override void OnCollide(Collider2D collide)

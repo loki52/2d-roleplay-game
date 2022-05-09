@@ -37,9 +37,6 @@ public class Movement : MonoBehaviour
                 transform.Translate(0, movementInput.y * moveSpeed * Time.deltaTime, 0);
             }
 
-            if (movementInput.x > 0) { transform.localScale = Vector3.one; }
-            if (movementInput.x < 0) { transform.localScale = new Vector3(-1, 1, 1); }
-
         }
     }
 
