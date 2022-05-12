@@ -25,6 +25,8 @@ public class MeleeAimSwing : MonoBehaviour
     bool swinging1;
     bool swinging2;
 
+    float currentSwingDir;
+
     int swing = 1;
     GameObject anchor;
 
@@ -34,6 +36,8 @@ public class MeleeAimSwing : MonoBehaviour
     MeleeAnimPass animScript;
 
     public float cooldown = 0.25f;
+    //The difference in seconds between each allowed attack
+
     public float swingEndCooldown;
     private float lastAttack;
     private float lastSwingEndTime;
@@ -73,6 +77,14 @@ public class MeleeAimSwing : MonoBehaviour
 
     private void Update()
     {
+        //1. Updates where the mouse is currently
+        //2. Flips the character based on which direction the mouse is (either 1 or -1 on x)
+        //3. Calculates the angle to the mouse cursor and rotates the melee anchor
+        //4. Rotates the anchor if there is currently a swing occuring (swinging1 or swinging2 denote this)
+        //Each frame, SmoothDamp is called to rotate the melee at speed velocity1 and at rotationTime
+        //5. Checks if a swing is finished
+        //6. Checks if the player wants to swing, if so, checks the last time they swinged and if it's less than cooldown
+
         if (srMeleePoint2.sprite != srMeleePoint1.sprite)
         {
             srMeleePoint2.sprite = srMeleePoint1.sprite;
@@ -133,6 +145,8 @@ public class MeleeAimSwing : MonoBehaviour
         if (Input.GetMouseButton(0) && Time.time - lastAttack > cooldown)
         {
             animScript.StartCoroutine(animScript.AttackAnim());
+            animScript.changeDirection(swing*=1);
+
             swingSword();
             lastAttack = Time.time;
         }
@@ -140,6 +154,11 @@ public class MeleeAimSwing : MonoBehaviour
 
     public void swingSword()
     {
+        //1. If the swing is in one melee mode, then it activates the meleePoint1 sprite,
+        //if it's in the other mode, then it activates the meleePoint2 sprite
+        //This function essentally starts the swinging process by changing the melee mode and
+        //cycling the melee mode
+
         firstSwing = true;
         fullFinish = false;
         if (swinging1) return;

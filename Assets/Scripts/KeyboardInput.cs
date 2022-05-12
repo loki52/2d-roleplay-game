@@ -13,6 +13,7 @@ public class KeyboardInput : MonoBehaviour
     {
         hideInvButton = false;
     }
+
     public void buttonHideInventory()
     {
         hideInvButton = true;

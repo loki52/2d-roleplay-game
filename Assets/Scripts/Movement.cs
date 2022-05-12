@@ -30,7 +30,6 @@ public class Movement : MonoBehaviour
             {
                 transform.Translate(movementInput.x * moveSpeed * Time.deltaTime, 0, 0);
             }
-            else Debug.Log(boxHit.collider.name);
 
             boxHit = Physics2D.BoxCast(transform.position, boxEntity.size, 0, new Vector2(0, movementInput.y), Mathf.Abs(movementInput.y * moveSpeed * Time.fixedDeltaTime), LayerMask.GetMask("Actor", "Blocking", "InteractableBlocking"));
 
@@ -38,7 +37,6 @@ public class Movement : MonoBehaviour
             {
                 transform.Translate(0, movementInput.y * moveSpeed * Time.deltaTime, 0);
             }
-            else Debug.Log(boxHit.collider.name);
 
         }
     }

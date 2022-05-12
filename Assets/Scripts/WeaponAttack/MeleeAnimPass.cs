@@ -21,9 +21,14 @@ public class MeleeAnimPass : MonoBehaviour
     public IEnumerator AttackAnim()
     {
         animator.SetBool("Swinging", true);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.14f);
         animator.SetBool("Swinging", false);
         weaponScript.ClearCollisions();
+    }
+
+    public void changeDirection(float swingDir)
+    {
+        animator.SetFloat("SwingingDirection", swingDir);
     }
 
 }
