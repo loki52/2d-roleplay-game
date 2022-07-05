@@ -4,7 +4,7 @@
 A 2D Roleplaying Game developed in Unity with C#
 
 ## Gameplay
-https://user-images.githubusercontent.com/67200560/177424132-38762ca3-6741-47bd-a0f4-faf621c193d4.mp4
+https://user-images.githubusercontent.com/67200560/177424593-3023f9ae-41cd-4022-ad42-472faa4b1347.mp4
 
 
 
