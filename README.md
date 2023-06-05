@@ -1,7 +1,7 @@
 
-# 2D Roleplaying Game
+# Aracnite
 
-A 2D Roleplaying Game developed in Unity with C#
+Arcanite is a 2D role-playing game developed in Unity with C#
 
 ## Gameplay
 https://user-images.githubusercontent.com/67200560/177424593-3023f9ae-41cd-4022-ad42-472faa4b1347.mp4
