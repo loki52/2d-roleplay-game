@@ -1,5 +1,5 @@
 
-# Aracnite
+# Arcanite
 
 Arcanite is a 2D role-playing game developed in Unity with C#
 
